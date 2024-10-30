@@ -10,15 +10,15 @@ public class MainMenu {
     public static void Menu() throws IOException {
 
         System.out.println("Меню \n 1 - Войти в игру \n 2 - Правила \n 3 - Выход");
-        Scanner o1 = new Scanner(System.in);
-        int a1 = o1.nextInt();
-        while (true) {
-            if (a1 == 1) {
+        Scanner menu = new Scanner(System.in);
 
+        if ( menu.hasNextInt() ) {
+            int a1 = menu.nextInt();
+
+
+            if (a1 == 1) {
                 Game game = new Game();
                 game.GameRun();
-                //убрать по завершении проекта, для возврата в главное меню
-                System.exit(0);
 
             } else if (a1 == 2) {
                 System.out.println("Виселица - игра, в которой вам нужно угадывать слово на тему африканских животных.");
@@ -36,8 +36,11 @@ public class MainMenu {
 
             } else
                 System.out.println("Нет такого пункта в меню");
-                Menu();
+            Menu();
+
         }
+
+        Menu();
 
     }
 }
