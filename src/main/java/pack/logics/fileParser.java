@@ -11,7 +11,6 @@ public class fileParser {
     public String readers() throws IOException {
 
 
-        //записываем в список все элементы из txt файла
 
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/ListAnimal.txt"));
         String str;
@@ -22,7 +21,6 @@ public class fileParser {
             }
         }
 
-        //рандомно выводим один из элементов
 
         var random = new SecureRandom();
         String randomList = list.get(random.nextInt(list.size()));
