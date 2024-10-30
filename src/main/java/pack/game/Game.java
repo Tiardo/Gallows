@@ -8,8 +8,8 @@ import java.io.IOException;
 public class Game {
 
 
-    public void GameRun() throws IOException {
-        Letters ls = new Letters();
-        ls.LettersM();
+    public void gameRun() throws IOException {
+        Letters letters = new Letters();
+        letters.letters();
     }
 }

@@ -5,42 +5,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static pack.logics.BadMenu.Badder1;
+import static pack.logics.BadMenu.badMenu;
 
 public class Letters {
 
-    public void LettersM() throws IOException {
+    public void letters() throws IOException {
 
-        fileParser fp = new fileParser();
+        FileParser fp = new FileParser();
         String name = fp.readers();
 
         Scanner keys = new Scanner(System.in);
         List<Character> playSay = new ArrayList<>();
-        Stars(name,playSay);
+        stars(name,playSay);
 
-        int NeVerno = 0;
+        int wrong = 0;
 
         while (true) {
 
-            Badder1(NeVerno);
-            if (NeVerno >= 6) {
+            badMenu(wrong);
+            if (wrong >= 6) {
                 System.out.println("Проигрыш");
                 System.out.println("Слово было " + name);
                 break;
             }
-            if (!Enterletters(keys,name,playSay)){
-                NeVerno++;
-                System.out.println("Нет такой буквы. \nОсталось " + (6 - NeVerno) + " попытки");
+            if (!enterletters(keys,name,playSay)){
+                wrong++;
+                System.out.println("Нет такой буквы. \nОсталось " + (6 - wrong) + " попытки");
                 }
-            if (Stars(name,playSay)) {
+            if (stars(name,playSay)) {
                 System.out.println("Победа");
                 break;
             }
         }
-        MainMenu.Menu();
+        MainMenu.menu();
     }
 
-        private static boolean Enterletters(Scanner keys,String name, List<Character> playSay){
+        private static boolean enterletters(Scanner keys,String name, List<Character> playSay){
 
         System.out.println("Введите буковку");
         String letsKey = keys.nextLine();
@@ -54,17 +54,17 @@ public class Letters {
             return name.contains(letsKey);
     }
 
-        private static boolean Stars(String name, List<Character> playSay ) {
-            int Verno = 0;
+        private static boolean stars(String name, List<Character> playSay ) {
+            int right = 0;
             for (int i = 0; i < name.length(); i++) {
                 if (playSay.contains(name.charAt(i))) {
                     System.out.print(name.charAt(i));
-                    Verno++;
+                    right++;
                 } else {
                     System.out.print("*");
                 }
             }
             System.out.println();
-            return (name.length() == Verno);
+            return (name.length() == right);
         }
 }

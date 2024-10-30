@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
-public class fileParser {
+public class FileParser {
 
     public String readers() throws IOException {
 
